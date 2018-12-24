@@ -4,7 +4,7 @@ export const MainContext = React.createContext();
 
 export class MainProvider extends React.Component {
   state = {
-    notification: 'blah',
+    notification: 'You have a notification!',
   }
 
   clearNotification = () => {

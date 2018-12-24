@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { CloseButton } from '../Buttons';
 import { NotificationContainer, NotificationText, LoadingBar } from './NotificationStyles';
 
 export class NotificationCard extends React.PureComponent {
@@ -24,8 +26,8 @@ export class NotificationCard extends React.PureComponent {
     return (
       <NotificationContainer
         className="notification"
-        onClick={() => clearNotification()}
       >
+        <CloseButton closeWindow={clearNotification} />
         <NotificationText>{notification}</NotificationText>
         <LoadingBar loadingAnimationLength={this.loadingAnimationLength} />
       </NotificationContainer>
