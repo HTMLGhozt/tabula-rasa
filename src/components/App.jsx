@@ -23,7 +23,11 @@ export class App extends React.PureComponent {
           <AppHeader className="App-header">
             test
           </AppHeader>
-          <Sidebar />
+          <Container>
+            {({ windowWidth }) => (
+              <Sidebar {...{ windowWidth }} />
+            )}
+          </Container>
         </PageContainer>
       </MainProvider>
     );

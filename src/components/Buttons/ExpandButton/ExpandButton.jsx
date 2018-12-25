@@ -1,15 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const HamburgerContainer = styled.div`
+  margin-left: 10px;
+  cursor: pointer;
+  marginTop: 10px;
+  height: 100px;
+`;
+
 const Hamburger = styled.span`
   display: block;
   width: 30px;
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  cursor: pointer;
 
-  background: #cdcdcd;
+  background: #282c34;
 
   z-index: 1;
 
@@ -29,26 +35,23 @@ const Hamburger = styled.span`
 
   &.checked {
     opacity: 1;
-    transform: rotate(45deg) translate(-6px, -1px);
-    background: #232323;
+    transform: rotate(40deg) translate(-6px, -1px);
+    background: #282c34;
 
     &:nth-last-child(3) {
       opacity: 0;
       transform: rotate(0deg) scale(0.2, 0.2);
     }
     &:nth-last-child(2) {
-      transform: rotate(-45deg) translate(-3.7px, -1px);
+      transform: rotate(-40deg) translate(-3.7px, -1px);
     }
   }
 `;
 
 export const ExpandButton = ({ active, toggleActive }) => (
-  <div
-    style={{ marginLeft: '10px' }}
-    onClick={() => toggleActive()}
-  >
+  <HamburgerContainer onClick={() => toggleActive()}>
     <Hamburger className={active && 'checked'} />
     <Hamburger className={active && 'checked'} />
     <Hamburger className={active && 'checked'} />
-  </div>
+  </HamburgerContainer>
 );

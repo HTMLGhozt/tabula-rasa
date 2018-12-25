@@ -15,5 +15,4 @@ export const AppHeader = styled.header`
   font-size: calc(10px + 2vmin);
   color: white;
   flex-grow: 1;
-  min-width: 100vh;
 `;

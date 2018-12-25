@@ -7,6 +7,22 @@ export class MainProvider extends React.Component {
     notification: null,
   }
 
+  componentDidMount() {
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions = () => {
+    this.setState({
+      windowWidth: window.innerWidth,
+      windowHeight: window.innerHeight,
+    });
+  }
+
   clearNotification = () => {
     this.setState({ notification: null });
   }
@@ -18,7 +34,11 @@ export class MainProvider extends React.Component {
   render() {
     const {
       props: { children },
-      state: { notification },
+      state: {
+        notification,
+        windowWidth,
+        windowHeight,
+      },
       clearNotification,
       addNotification,
     } = this;
@@ -26,6 +46,8 @@ export class MainProvider extends React.Component {
     return (
       <MainContext.Provider
         value={{
+          windowWidth,
+          windowHeight,
           notification,
           clearNotification,
           addNotification,
